@@ -1,0 +1,45 @@
+document.addEventListener('DOMContentLoaded', () => {
+    const statusPlaceholder = document.getElementById('statusPlaceholder'); // This element isn't in your current index.html, it's from an older iteration
+    const statusInput = document.getElementById('postContent'); // Use the textarea with ID 'postContent'
+    const postButton = document.getElementById('postButton'); // Use the button with ID 'postButton'
+    const postForm = document.getElementById('postForm'); // Use the form with ID 'postForm'
+
+    // This handles the form submission via Fetch API
+    if (postForm) {
+        postForm.addEventListener('submit', async function(event) {
+            event.preventDefault(); // Prevent default form submission
+
+            const postContent = statusInput.value.trim();
+
+            if (!postContent) {
+                alert('Please write something before sharing!');
+                return;
+            }
+
+            try {
+                // IMPORTANT: This 'action' URL (/submit-post) implies a backend.
+                // For a purely static site, this will lead to a 404 unless you set up a Vercel Serverless Function.
+                // For client-side saving, you'd use localStorage here instead of fetch.
+                const response = await fetch(this.action, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ postContent: postContent })
+                });
+
+                if (response.ok) {
+                    const data = await response.text(); // Or response.json() if your backend sends JSON
+                    alert('Your thoughts have been shared (logged on server)!');
+                    statusInput.value = ''; // Clear the textarea
+                } else {
+                    const errorData = await response.text();
+                    alert('Failed to share your thoughts: ' + errorData);
+                }
+            } catch (error) {
+                console.error('Error submitting post:', error);
+                alert('An error occurred while trying to share your thoughts. Make sure your backend is running if required.');
+            }
+        });
+    }
+});
