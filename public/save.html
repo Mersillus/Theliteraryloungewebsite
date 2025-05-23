@@ -1,125 +1,17 @@
-<<<<<<< HEAD
-/*
- * FINAL COMBINED CSS for the <body> and .page-container elements.
- * This ensures the background image shows and your content area is translucent.
- */
-
-/* --- Body Background Styling --- */
-body {
-    font-family: 'Open Sans', sans-serif;
-    padding-top: 80px; /* Adjust if your fixed-top navbar requires more or less padding */
-    margin: 0; /* Remove default browser margin */
-
-    /* New background styles: */
-    background-color: #2c3e50; /* Fallback dark blue-grey */
-    background-image: url('https://images.unsplash.com/photo-1634712282287-14a67b429f5f?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
-    background-size: cover;
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    min-height: 100vh;
-    transition: background-image 0.5s ease-in-out;
-}
-
-/* --- Main Content Area Styling for Translucency (UPDATED to .page-container) --- */
-/*
- * This rule now targets the '.page-container' div from your HTML
- * to make your main content area slightly translucent, allowing the
- * elegant background image to subtly show through.
- * Replace your old 'main { ... }' rule with this one.
- */
-.page-container {
-    background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white background for content */
-    padding: 20px; /* Add some padding around your main content */
-    margin: 20px auto; /* Center the content area horizontally */
-    max-width: 900px; /* Limit the width for better readability */
-    border-radius: 12px; /* Soften the corners */
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); /* Add a subtle shadow for depth */
-    min-height: calc(100vh - 100px); /* Adjust min-height, accounting for navbar and margins */
-    display: flex; /* Use flexbox for layout within the container */
-    flex-direction: column; /* Stack children vertically */
-    align-items: center; /* Center items horizontally within the container */
-    box-sizing: border-box; /* Include padding/border in element's total width/height */
-}
-
-/* Adjustments for sections/elements within .page-container to ensure they respect the translucency */
-/* These rules should generally apply to your content elements within .page-container */
-.site-title,
-.tagline,
-.main-intro,
-.post-container,
-.import-section,
-.export-section,
-.feedback-section,
-.review-section,
-.about-us-summary {
-    background-color: transparent; /* Ensure these elements don't add another opaque layer */
-    width: 100%; /* Take full width of parent container */
-    max-width: 700px; /* Keep content readable */
-    box-sizing: border-box; /* Include padding in width */
-    padding: 10px 0; /* Adjust padding as needed for internal elements */
-    text-align: center; /* Center text if desired */
-}
-
-/* Specific adjustments for the post-container if needed */
-.post-container {
-    padding: 20px;
-    background-color: rgba(255, 255, 255, 0.7); /* Slightly more opaque background for the status box itself */
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    margin-top: 20px;
-    margin-bottom: 20px;
-}
-
-/* Ensure textarea within post-container is readable */
-.post-textarea {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-sizing: border-box;
-    margin-bottom: 10px;
-    font-size: 1rem;
-    line-height: 1.5;
-}
-
-.post-button {
-    background-color: #007bff;
-    color: white;
-    padding: 10px 15px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 1rem;
-    transition: background-color 0.3s ease;
-}
-
-.post-button:hover {
-    background-color: #0056b3;
-}
-
-/* Responsive adjustments for smaller screens */
-@media (max-width: 768px) {
-    .page-container {
-        margin: 10px;
-        padding: 10px;
-        border-radius: 8px;
-        min-height: calc(100vh - 80px); /* Adjusted for smaller screens */
-    }
-    .site-title,
-    .tagline,
-    .main-intro,
-    .post-container {
-        padding: 10px;
-    }
-}
-=======
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Save File - The Literary Lounge</title>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-11256413411"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-11256413411');
+    </script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Open+Sans:wght@400;600&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
@@ -159,6 +51,5 @@ body {
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-    </body>
+</body>
 </html>
->>>>>>> master
